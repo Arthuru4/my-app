@@ -1,29 +1,86 @@
-.App {
+.app {
   background-color: #fff4ee;
   min-height: 100vh;
-  min-width: 100vw;
+  font-family: monospace;
+  display: flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -webkit-flex;
+  display: -o-flex;
+  min-width: 360px;
 }
 
 .sider {
-  background-color: #ffe4d6;
+  position: fixed;
   height: 100vh;
+
+  background-color: #ffe4d6;
+  text-align: center;
+  i {
+    display: block;
+    color: #e1aa98;
+    font-size: 32px;
+    margin-bottom: 32px;
+    cursor: pointer;
+  }
+  i.active {
+    color: #8964d7;
+    border-left: 2px solid #8964d7;
+  }
+  i.active:hover {
+    opacity: 1;
+  }
+  i:hover {
+    opacity: 0.4;
+  }
+}
+
+.top-title {
+  font-size: 32px;
+  line-height: 40px;
 }
 
 @media (max-width: 669px) {
   .sider {
     width: 60px;
+    padding-top: 48px;
   }
 
   .content {
     padding: 32px 16px;
+    width: calc(100% - 84px);
+    margin-left: 60px;
   }
 }
 @media (min-width: 670px) {
   .sider {
     width: 80px;
+    padding-top: 64px;
   }
 
   .content {
-    padding: 48px 16px;
+    padding: 32px 48px;
+    width: calc(100% - 176px);
+    margin-left: 80px;
   }
+}
+
+.flex-space-between {
+  display: flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -webkit-flex;
+  display: -o-flex;
+
+  justify-content: space-between;
+}
+
+.full-width {
+  width: 100%;
+}
+.wrap {
+  flex-wrap: wrap;
+}
+.opacity {
+  opacity: 0.6;
 }

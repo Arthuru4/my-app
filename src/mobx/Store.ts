@@ -1,16 +1,17 @@
 import { configure } from "mobx";
-import layoutStore, {LayoutStore} from "./layoutStore";
+import {CoursesStore} from "./coursesStore";
+import coursesStore from "./coursesStore";
 
 configure({
   disableErrorBoundaries: true,
 });
 
 const StoreMobx = {
-  layoutStore
+  coursesStore
 };
 
 export interface IStoreMobx {
-  layoutStore: LayoutStore
+  coursesStore: CoursesStore
 }
 
 export default StoreMobx;

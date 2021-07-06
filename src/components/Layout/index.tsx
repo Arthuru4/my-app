@@ -1,14 +1,39 @@
 import React from "react";
-import './index.scss'
-interface IProps extends React.HTMLAttributes<HTMLElement> {}
+import "./index.scss";
+import { RouteComponentProps, withRouter } from "react-router-dom";
+import { CoursesRoute, PeoplesRoute, TodosRoute } from "../../routes";
+
+interface IProps
+  extends React.HTMLAttributes<HTMLElement>,
+    RouteComponentProps {}
 
 const LayoutComponent = (props: IProps) => {
+  const { children, history, location } = props;
+
+  const item = location.pathname;
   return (
-    <div className="App">
-      <div className={"sider"}/>
-      {props.children}
+    <div className="app">
+      <nav className={"sider"}>
+        <i
+          onClick={() => history.push(CoursesRoute.path)}
+          className={`ri-message-fill ${
+            item === CoursesRoute.path ? "active" : ""
+          }`}
+        />
+        <i
+          onClick={() => history.push(TodosRoute.path)}
+          className={`ri-todo-fill ${item === TodosRoute.path ? "active" : ""}`}
+        />
+        <i
+          onClick={() => history.push(PeoplesRoute.path)}
+          className={`ri-team-fill ${
+            item === PeoplesRoute.path ? "active" : ""
+          }`}
+        />
+      </nav>
+      {children}
     </div>
   );
 };
 
-export default LayoutComponent;
+export default withRouter(LayoutComponent);

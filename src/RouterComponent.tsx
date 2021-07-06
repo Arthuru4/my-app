@@ -6,6 +6,8 @@ const RouterComponent = () => {
   return (
     <Switch>
       <Route {...routes.CoursesRoute} />
+      <Route {...routes.TodosRoute} />
+      <Route {...routes.PeoplesRoute} />
       <Route {...routes.NoMatchRoute} />
     </Switch>
   );
